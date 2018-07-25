@@ -5,6 +5,6 @@ require 'faker'
 end
 
 20.times do
-  lecon = Lecon.create(title: rand(1..20), body: Faker::Educator.course, cour_id: rand(1..10))
+  lecon = Lecon.create(title: Faker::Educator.course, body: Faker::Educator.course, cour_id: rand(1..10))
 end
 
