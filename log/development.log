@@ -1,0 +1,515 @@
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (143.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (126.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCours (20180725162429)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "cours" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180725162429_create_cours.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180725162429"]]
+  ↳ bin/rails:9
+  [1m[35m (122.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-07-25 16:26:36.782271"], ["updated_at", "2018-07-25 16:26:36.782271"]]
+  ↳ bin/rails:9
+  [1m[35m (79.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateLecons (20180725162752)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20180725162752_create_lecons.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "lecons" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180725162752_create_lecons.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180725162752"]]
+  ↳ bin/rails:9
+  [1m[35m (126.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddLeconToCour (20180725164338)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "lecons" ADD "cour_id" integer[0m
+  ↳ db/migrate/20180725164338_add_lecon_to_cour.rb:3
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20180725164338_add_lecon_to_cour.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_lecons_on_cour_id" ON "lecons" ("cour_id")[0m
+  ↳ db/migrate/20180725164338_add_lecon_to_cour.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180725164338"]]
+  ↳ bin/rails:9
+  [1m[35m (122.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.4ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "9"], ["description", "Master of Medicine"], ["created_at", "2018-07-25 16:48:36.986213"], ["updated_at", "2018-07-25 16:48:36.986213"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (81.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.3ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "2"], ["description", "Bachelor of Information Systems"], ["created_at", "2018-07-25 16:48:37.070775"], ["updated_at", "2018-07-25 16:48:37.070775"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (108.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.4ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "2"], ["description", "Associate Degree in Health Science"], ["created_at", "2018-07-25 16:48:37.182246"], ["updated_at", "2018-07-25 16:48:37.182246"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (85.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.4ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "10"], ["description", "Bachelor of Business"], ["created_at", "2018-07-25 16:48:37.271000"], ["updated_at", "2018-07-25 16:48:37.271000"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (79.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.3ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "6"], ["description", "Master of Commerce"], ["created_at", "2018-07-25 16:48:37.358818"], ["updated_at", "2018-07-25 16:48:37.358818"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (76.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.3ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "7"], ["description", "Associate Degree in Criminology"], ["created_at", "2018-07-25 16:48:37.437891"], ["updated_at", "2018-07-25 16:48:37.437891"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (85.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.3ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "5"], ["description", "Bachelor of Criminology"], ["created_at", "2018-07-25 16:48:37.526453"], ["updated_at", "2018-07-25 16:48:37.526453"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (85.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.3ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "9"], ["description", "Bachelor of Law"], ["created_at", "2018-07-25 16:48:37.615212"], ["updated_at", "2018-07-25 16:48:37.615212"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (73.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.4ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "7"], ["description", "Bachelor of Biomedical Science"], ["created_at", "2018-07-25 16:48:37.692955"], ["updated_at", "2018-07-25 16:48:37.692955"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (74.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.4ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "6"], ["description", "Master of Business"], ["created_at", "2018-07-25 16:48:37.770145"], ["updated_at", "2018-07-25 16:48:37.770145"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (84.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.5ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "8"], ["description", "Master of Arts"], ["created_at", "2018-07-25 16:49:21.741371"], ["updated_at", "2018-07-25 16:49:21.741371"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (74.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.4ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "4"], ["description", "Bachelor of Teaching"], ["created_at", "2018-07-25 16:49:21.818520"], ["updated_at", "2018-07-25 16:49:21.818520"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (75.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.3ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "10"], ["description", "Master of Forensic Science"], ["created_at", "2018-07-25 16:49:21.896380"], ["updated_at", "2018-07-25 16:49:21.896380"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (64.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.6ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "7"], ["description", "Associate Degree in Engineering"], ["created_at", "2018-07-25 16:49:21.964627"], ["updated_at", "2018-07-25 16:49:21.964627"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (60.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.3ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "5"], ["description", "Associate Degree in Forensic Science"], ["created_at", "2018-07-25 16:49:22.028264"], ["updated_at", "2018-07-25 16:49:22.028264"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (76.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.3ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "10"], ["description", "Associate Degree in Nursing"], ["created_at", "2018-07-25 16:49:22.106946"], ["updated_at", "2018-07-25 16:49:22.106946"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (64.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.3ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "3"], ["description", "Master of Business"], ["created_at", "2018-07-25 16:49:22.173615"], ["updated_at", "2018-07-25 16:49:22.173615"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (64.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.3ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "9"], ["description", "Associate Degree in Nursing"], ["created_at", "2018-07-25 16:49:22.240044"], ["updated_at", "2018-07-25 16:49:22.240044"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (75.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.3ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "10"], ["description", "Master of Psychology"], ["created_at", "2018-07-25 16:49:22.317977"], ["updated_at", "2018-07-25 16:49:22.317977"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (75.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.3ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "6"], ["description", "Bachelor of Criminology"], ["created_at", "2018-07-25 16:49:22.395575"], ["updated_at", "2018-07-25 16:49:22.395575"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (86.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.4ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "2"], ["description", "Master of Nursing"], ["created_at", "2018-07-25 16:53:41.424188"], ["updated_at", "2018-07-25 16:53:41.424188"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (91.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.3ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "5"], ["description", "Associate Degree in Education"], ["created_at", "2018-07-25 16:53:41.518998"], ["updated_at", "2018-07-25 16:53:41.518998"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (86.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.3ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "4"], ["description", "Master of Teaching"], ["created_at", "2018-07-25 16:53:41.607721"], ["updated_at", "2018-07-25 16:53:41.607721"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (85.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.3ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "6"], ["description", "Associate Degree in Communications"], ["created_at", "2018-07-25 16:53:41.696265"], ["updated_at", "2018-07-25 16:53:41.696265"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (86.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.4ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "4"], ["description", "Associate Degree in Applied Science (Psychology)"], ["created_at", "2018-07-25 16:53:41.786270"], ["updated_at", "2018-07-25 16:53:41.786270"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (72.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.3ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "3"], ["description", "Master of Health Science"], ["created_at", "2018-07-25 16:53:41.861393"], ["updated_at", "2018-07-25 16:53:41.861393"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (120.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.3ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "7"], ["description", "Associate Degree in Criminology"], ["created_at", "2018-07-25 16:53:41.984616"], ["updated_at", "2018-07-25 16:53:41.984616"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (76.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.7ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "10"], ["description", "Associate Degree in Teaching"], ["created_at", "2018-07-25 16:53:42.064721"], ["updated_at", "2018-07-25 16:53:42.064721"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (82.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.4ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "8"], ["description", "Master of Biological Science"], ["created_at", "2018-07-25 16:53:42.151209"], ["updated_at", "2018-07-25 16:53:42.151209"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (74.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mCour Create (0.3ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "8"], ["description", "Associate Degree in Psychology"], ["created_at", "2018-07-25 16:53:42.229363"], ["updated_at", "2018-07-25 16:53:42.229363"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (74.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:2
+  [1m[36mLecon Load (0.2ms)[0m  [1m[34mSELECT "lecons".* FROM "lecons"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mLecon Load (0.2ms)[0m  [1m[34mSELECT "lecons".* FROM "lecons"[0m
+  ↳ db/seeds.rb:5
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mLecon Load (0.2ms)[0m  [1m[34mSELECT "lecons".* FROM "lecons"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mCour Load (0.2ms)[0m  [1m[34mSELECT  "cours".* FROM "cours" WHERE "cours"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:6
+  [1m[36mLecon Create (0.4ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "cour_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "6"], ["body", "Master of Teaching"], ["created_at", "2018-07-25 17:08:47.593453"], ["updated_at", "2018-07-25 17:08:47.593453"], ["cour_id", 9]]
+  ↳ db/seeds.rb:6
+  [1m[35m (132.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mCour Load (0.1ms)[0m  [1m[34mSELECT  "cours".* FROM "cours" WHERE "cours"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:6
+  [1m[36mLecon Create (0.3ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "cour_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "12"], ["body", "Associate Degree in Creative Arts"], ["created_at", "2018-07-25 17:08:47.730285"], ["updated_at", "2018-07-25 17:08:47.730285"], ["cour_id", 9]]
+  ↳ db/seeds.rb:6
+  [1m[35m (95.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mCour Load (0.1ms)[0m  [1m[34mSELECT  "cours".* FROM "cours" WHERE "cours"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:6
+  [1m[36mLecon Create (0.3ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "cour_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "5"], ["body", "Associate Degree in Forensic Science"], ["created_at", "2018-07-25 17:08:47.830293"], ["updated_at", "2018-07-25 17:08:47.830293"], ["cour_id", 4]]
+  ↳ db/seeds.rb:6
+  [1m[35m (86.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mCour Load (0.4ms)[0m  [1m[34mSELECT  "cours".* FROM "cours" WHERE "cours"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:6
+  [1m[36mLecon Create (0.9ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "cour_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "6"], ["body", "Master of Architectural Technology"], ["created_at", "2018-07-25 17:08:47.922000"], ["updated_at", "2018-07-25 17:08:47.922000"], ["cour_id", 9]]
+  ↳ db/seeds.rb:6
+  [1m[35m (70.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mCour Load (0.1ms)[0m  [1m[34mSELECT  "cours".* FROM "cours" WHERE "cours"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:6
+  [1m[36mLecon Create (0.3ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "cour_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "16"], ["body", "Bachelor of Architectural Technology"], ["created_at", "2018-07-25 17:08:47.996865"], ["updated_at", "2018-07-25 17:08:47.996865"], ["cour_id", 7]]
+  ↳ db/seeds.rb:6
+  [1m[35m (96.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mCour Load (0.1ms)[0m  [1m[34mSELECT  "cours".* FROM "cours" WHERE "cours"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:6
+  [1m[36mLecon Create (0.3ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "cour_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "14"], ["body", "Bachelor of Information Systems"], ["created_at", "2018-07-25 17:08:48.096202"], ["updated_at", "2018-07-25 17:08:48.096202"], ["cour_id", 5]]
+  ↳ db/seeds.rb:6
+  [1m[35m (96.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mCour Load (0.1ms)[0m  [1m[34mSELECT  "cours".* FROM "cours" WHERE "cours"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:6
+  [1m[36mLecon Create (0.3ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "cour_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "6"], ["body", "Master of Information Systems"], ["created_at", "2018-07-25 17:08:48.195894"], ["updated_at", "2018-07-25 17:08:48.195894"], ["cour_id", 3]]
+  ↳ db/seeds.rb:6
+  [1m[35m (96.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mCour Load (0.1ms)[0m  [1m[34mSELECT  "cours".* FROM "cours" WHERE "cours"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:6
+  [1m[36mLecon Create (0.3ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "cour_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "1"], ["body", "Bachelor of Biological Science"], ["created_at", "2018-07-25 17:08:48.296355"], ["updated_at", "2018-07-25 17:08:48.296355"], ["cour_id", 2]]
+  ↳ db/seeds.rb:6
+  [1m[35m (84.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mCour Load (0.2ms)[0m  [1m[34mSELECT  "cours".* FROM "cours" WHERE "cours"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:6
+  [1m[36mLecon Create (0.5ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "cour_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "10"], ["body", "Associate Degree in Engineering"], ["created_at", "2018-07-25 17:08:48.386028"], ["updated_at", "2018-07-25 17:08:48.386028"], ["cour_id", 5]]
+  ↳ db/seeds.rb:6
+  [1m[35m (93.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mCour Load (0.1ms)[0m  [1m[34mSELECT  "cours".* FROM "cours" WHERE "cours"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:6
+  [1m[36mLecon Create (0.3ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "cour_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "9"], ["body", "Bachelor of Law"], ["created_at", "2018-07-25 17:08:48.491147"], ["updated_at", "2018-07-25 17:08:48.491147"], ["cour_id", 9]]
+  ↳ db/seeds.rb:6
+  [1m[35m (91.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mCour Load (0.1ms)[0m  [1m[34mSELECT  "cours".* FROM "cours" WHERE "cours"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:6
+  [1m[36mLecon Create (0.3ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "cour_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "4"], ["body", "Associate Degree in Medicine"], ["created_at", "2018-07-25 17:08:48.585880"], ["updated_at", "2018-07-25 17:08:48.585880"], ["cour_id", 3]]
+  ↳ db/seeds.rb:6
+  [1m[35m (95.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mCour Load (0.1ms)[0m  [1m[34mSELECT  "cours".* FROM "cours" WHERE "cours"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:6
+  [1m[36mLecon Create (0.3ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "cour_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "9"], ["body", "Master of Creative Arts"], ["created_at", "2018-07-25 17:08:48.686512"], ["updated_at", "2018-07-25 17:08:48.686512"], ["cour_id", 9]]
+  ↳ db/seeds.rb:6
+  [1m[35m (84.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mCour Load (0.2ms)[0m  [1m[34mSELECT  "cours".* FROM "cours" WHERE "cours"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:6
+  [1m[36mLecon Create (0.5ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "cour_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "11"], ["body", "Master of Creative Arts"], ["created_at", "2018-07-25 17:08:48.777487"], ["updated_at", "2018-07-25 17:08:48.777487"], ["cour_id", 6]]
+  ↳ db/seeds.rb:6
+  [1m[35m (179.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mCour Load (0.1ms)[0m  [1m[34mSELECT  "cours".* FROM "cours" WHERE "cours"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:6
+  [1m[36mLecon Create (0.3ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "cour_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "12"], ["body", "Associate Degree in Information Systems"], ["created_at", "2018-07-25 17:08:48.962556"], ["updated_at", "2018-07-25 17:08:48.962556"], ["cour_id", 2]]
+  ↳ db/seeds.rb:6
+  [1m[35m (86.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mCour Load (0.2ms)[0m  [1m[34mSELECT  "cours".* FROM "cours" WHERE "cours"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:6
+  [1m[36mLecon Create (0.5ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "cour_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "6"], ["body", "Master of Information Systems"], ["created_at", "2018-07-25 17:08:49.053082"], ["updated_at", "2018-07-25 17:08:49.053082"], ["cour_id", 6]]
+  ↳ db/seeds.rb:6
+  [1m[35m (82.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mCour Load (0.1ms)[0m  [1m[34mSELECT  "cours".* FROM "cours" WHERE "cours"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:6
+  [1m[36mLecon Create (0.3ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "cour_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "20"], ["body", "Bachelor of Design"], ["created_at", "2018-07-25 17:08:49.139824"], ["updated_at", "2018-07-25 17:08:49.139824"], ["cour_id", 6]]
+  ↳ db/seeds.rb:6
+  [1m[35m (108.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mCour Load (0.1ms)[0m  [1m[34mSELECT  "cours".* FROM "cours" WHERE "cours"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:6
+  [1m[36mLecon Create (0.4ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "cour_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "14"], ["body", "Bachelor of Education"], ["created_at", "2018-07-25 17:08:49.254303"], ["updated_at", "2018-07-25 17:08:49.254303"], ["cour_id", 2]]
+  ↳ db/seeds.rb:6
+  [1m[35m (81.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mCour Load (0.1ms)[0m  [1m[34mSELECT  "cours".* FROM "cours" WHERE "cours"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:6
+  [1m[36mLecon Create (0.3ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "cour_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "4"], ["body", "Master of Computer Science"], ["created_at", "2018-07-25 17:08:49.343133"], ["updated_at", "2018-07-25 17:08:49.343133"], ["cour_id", 10]]
+  ↳ db/seeds.rb:6
+  [1m[35m (81.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mCour Load (0.1ms)[0m  [1m[34mSELECT  "cours".* FROM "cours" WHERE "cours"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:6
+  [1m[36mLecon Create (0.3ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "cour_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "2"], ["body", "Bachelor of Health Science"], ["created_at", "2018-07-25 17:08:49.428885"], ["updated_at", "2018-07-25 17:08:49.428885"], ["cour_id", 4]]
+  ↳ db/seeds.rb:6
+  [1m[35m (95.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mCour Load (0.1ms)[0m  [1m[34mSELECT  "cours".* FROM "cours" WHERE "cours"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:6
+  [1m[36mLecon Create (0.3ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "cour_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "7"], ["body", "Associate Degree in Applied Science (Psychology)"], ["created_at", "2018-07-25 17:08:49.529732"], ["updated_at", "2018-07-25 17:08:49.529732"], ["cour_id", 2]]
+  ↳ db/seeds.rb:6
+  [1m[35m (94.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
